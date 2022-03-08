@@ -1,5 +1,8 @@
 <template>
 	<div class="card">
+		<div class="id">ADVICE #{{ data.id }}</div>
+		<div class="advice">"{{ data.advice }}"</div>
+		<img src="../assets/pattern-divider-desktop.svg" alt="" />
 		<button @click="onBtnClick">
 			<img src="../assets/icon-dice.svg" alt="" />
 		</button>
@@ -27,9 +30,27 @@ const onBtnClick = () => {
 	min-height: 50vh;
 	min-width: 300px;
 	width: 40%;
+	height: max-content;
 	background: var(--blue-2);
 	border-radius: 1rem;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding: 1rem 1rem 4rem 1rem;
+	gap: 2rem;
+}
+.id {
+	color: var(--green);
+	letter-spacing: 4px;
+	font-size: 12px;
+}
+.advice {
+	max-width: 70%;
+	font-weight: 500;
+	color: #fff;
+	font-size: 1.8rem;
 }
 button {
 	outline: none;
@@ -43,7 +64,7 @@ button {
 	position: absolute;
 	bottom: 0;
 	left: 50%;
-	transform: translateY(50%);
+	transform: translate(-50%, 50%);
 	transition: 0.3s;
 }
 button img {

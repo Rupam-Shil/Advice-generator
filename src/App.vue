@@ -1,16 +1,19 @@
 <template>
+	<LoadingModal v-if="showLoadingModules" />
 	<section class="main">
-		<Card @btnClicked="onBtnClicked" />
+		<Card @btnClicked="onBtnClicked" :data="quote" />
 	</section>
 </template>
 
 <script setup>
 import Card from './components/Card.vue';
+import LoadingModal from './components/LoadingModal.vue';
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 const store = useStore();
 
 const quote = computed(() => store.state.quote);
+const showLoadingModules = computed(() => store.state.showLoadingModules);
 
 store.dispatch('getQuote');
 
